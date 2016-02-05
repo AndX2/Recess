@@ -32,10 +32,10 @@ public class DayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(LAYOUT, container, false);
-        txtView = (TextView)view.findViewById(R.id.txt_view);
+        txtView = (TextView) view.findViewById(R.id.txt_view);
         currentTime = Calendar.getInstance();
         txtView.setText("day of week = " + currentTime.get(Calendar.DAY_OF_WEEK) +
-        ", first day of week = " + currentTime.getFirstDayOfWeek());
+                ", first day of week = " + currentTime.getFirstDayOfWeek());
         return view;
 
     }
