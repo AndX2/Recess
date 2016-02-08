@@ -1,6 +1,7 @@
 package ru.yandex.android.andrew.recess;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -30,6 +31,8 @@ public class ActivityMain extends AppCompatActivity {
         setTheme(R.style.ThemeDefault);
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT_MAIN);
+
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
 
         initToolbar();
         initNavigationView();

@@ -1,6 +1,9 @@
 package ru.yandex.android.andrew.recess;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import ru.yandex.android.andrew.recess.pojo.SyllabusEntry;
 
 /**
  * Created by Andrew on 02.02.2016.
@@ -41,4 +44,16 @@ public class Utils {
 
     //TODO
     //Create method getTimeUTC(date, hour, minute);
+
+    //TODO delete this method
+    public static ArrayList<SyllabusEntry> createMockListEntry() {
+        ArrayList<SyllabusEntry> list = new ArrayList<>();
+        list.add(new SyllabusEntry(Utils.getTimeForDB(8, 0), Utils.getTimeForDB(8, 45)));
+        list.add(new SyllabusEntry(Utils.getTimeForDB(8, 55), Utils.getTimeForDB(9, 40)));
+        list.add(new SyllabusEntry(Utils.getTimeForDB(9, 45), Utils.getTimeForDB(10, 30)));
+        list.add(new SyllabusEntry(Utils.getTimeForDB(8, 0), Utils.getTimeForDB(8, 45)));
+        list.add(new SyllabusEntry(Utils.getTimeForDB(8, 55), Utils.getTimeForDB(9, 40)));
+        list.add(new SyllabusEntry(Utils.getTimeForDB(9, 45), Utils.getTimeForDB(10, 30)));
+        return list;
+    }
 }
