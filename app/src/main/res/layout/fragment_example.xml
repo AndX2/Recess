@@ -4,6 +4,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="понедельник"
+            android:textColor="@color/colorPrimaryText"
+            android:id="@+id/txtDayOfWeek"
+            android:textSize="@dimen/sizeTextDateDayFragment"
+            android:layout_gravity="center"
+            android:paddingRight="8dp"
+            android:shadowColor="@color/colorShadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="08"
+            android:textSize="50dp"
+            android:textColor="@color/colorPrimaryText"
+            android:id="@+id/txtDayOfMonth"
+            android:layout_gravity="center"
+            android:shadowColor="@color/colorShadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="февраль"
+            android:textColor="@color/colorPrimaryText"
+            android:id="@+id/txtMonth"
+            android:textSize="@dimen/sizeTextDateDayFragment"
+            android:layout_gravity="center"
+            android:paddingLeft="8dp"
+            android:shadowColor="@color/colorShadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="5" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/txt_view"
         android:layout_width="match_parent"

@@ -9,6 +9,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import java.util.Calendar;
+
 import ru.yandex.android.andrew.recess.adapter.TabsPagerFragmentAdapter;
 
 /**
@@ -19,6 +22,7 @@ public class ActivityMain extends AppCompatActivity {
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ViewPager viewPager;
+    TabsPagerFragmentAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,13 @@ public class ActivityMain extends AppCompatActivity {
         initNavigationView();
         initTabs();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //- Calendar.getInstance().getFirstDayOfWeek() correction of method Calendar returned DayOfWeek [1:7]
+        setCurrentTab(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) - Calendar.getInstance().getFirstDayOfWeek());
     }
 
     private void initToolbar() {
@@ -71,13 +82,19 @@ public class ActivityMain extends AppCompatActivity {
     private void initTabs() {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        TabsPagerFragmentAdapter adapter = new TabsPagerFragmentAdapter(getSupportFragmentManager(), this);
+        adapter = new TabsPagerFragmentAdapter(getSupportFragmentManager(), this);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
     }
 
+    //TODO drop this method (stub listener NavigationDrawer)
     public void showNotificationTab() {
         viewPager.setCurrentItem(Utils.TAB_TWO);
+    }
+
+    public void setCurrentTab(int tab) {
+        if (tab >= 0 && tab < adapter.getCount())
+            viewPager.setCurrentItem(tab);
     }
 }
