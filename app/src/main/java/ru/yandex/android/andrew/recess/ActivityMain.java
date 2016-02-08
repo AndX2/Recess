@@ -21,6 +21,7 @@ public class ActivityMain extends AppCompatActivity {
     private static final int LAYOUT_MAIN = R.layout.activity_main;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
+
     private ViewPager viewPager;
     TabsPagerFragmentAdapter adapter;
 
