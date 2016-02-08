@@ -17,18 +17,17 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        final String SQL_CREATE_SYLLABUS_TABLE = "CREATE TABLE " + SyllabusEntry.TABLE_NAME + " (" +
-                SyllabusEntry.ID + " INTEGER PRIMARY KEY," +
-                SyllabusEntry.DAY + " INTEGER NOT NULL, " +
-                " );";
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL(SyllabusEntry.SQL_CREATE_SYLLABUS_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        //TODO
+        //Code upgrade db scheme (drop tables syllabus and event)
 
     }
 
-    //TODO
+
 
 }
