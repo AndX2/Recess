@@ -6,9 +6,21 @@
     <string name="view_navigation_close">Close</string>
 
     <string-array name="tabs">
-        <item>History</item>
-        <item>Idease</item>
-        <item>TODO</item>
-        <item>Birthdays</item>
+        <item>Sun</item>
+        <item>Mon</item>
+        <item>Tu</item>
+        <item>Wed</item>
+        <item>Th</item>
+        <item>Fr</item>
+        <item>Sat</item>
+    </string-array>
+    <string-array name="daysOfWeek">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesdays</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
     </string-array>
 </resources>

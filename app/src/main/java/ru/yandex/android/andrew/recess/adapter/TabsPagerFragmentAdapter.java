@@ -25,13 +25,19 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return DayFragment.getInstance();
+                return DayFragment.getInstance(context, position);
             case 1:
-                return DayFragment.getInstance();
+                return DayFragment.getInstance(context, position);
             case 2:
-                return DayFragment.getInstance();
+                return DayFragment.getInstance(context, position);
             case 3:
-                return DayFragment.getInstance();
+                return DayFragment.getInstance(context, position);
+            case 4:
+                return DayFragment.getInstance(context, position);
+            case 5:
+                return DayFragment.getInstance(context, position);
+            case 6:
+                return DayFragment.getInstance(context, position);
         }
         return null;
     }
