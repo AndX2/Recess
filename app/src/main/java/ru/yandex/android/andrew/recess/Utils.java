@@ -66,9 +66,9 @@ public class Utils {
 
     public static ArrayList<SyllabusEntry> createSyllabusListEntry(Cursor cursor, int dayOfWeek) {
         ArrayList<SyllabusEntry> list = new ArrayList<>();
-        int dayColumnIndex = cursor.getColumnIndex(SyllabusContract.SyllabusEntry.DAY);
-        int beginTimeColumnIndex = cursor.getColumnIndex(SyllabusContract.SyllabusEntry.BEGIN_TIME);
-        int endTimeColumnIndex = cursor.getColumnIndex(SyllabusContract.SyllabusEntry.END_TIME);
+        int dayColumnIndex = cursor.getColumnIndex(SyllabusContract.Syllabus.DAY);
+        int beginTimeColumnIndex = cursor.getColumnIndex(SyllabusContract.Syllabus.BEGIN_TIME);
+        int endTimeColumnIndex = cursor.getColumnIndex(SyllabusContract.Syllabus.END_TIME);
         cursor.moveToFirst();
         while (cursor.moveToNext()) {
             if (cursor.getInt(dayColumnIndex) == dayOfWeek)
@@ -83,11 +83,11 @@ public class Utils {
         for (int day = 1; day <= 7; day++) {
             for (int lesson = 0; lesson < 5; lesson++) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(SyllabusContract.SyllabusEntry.DAY, day);
-                contentValues.put(SyllabusContract.SyllabusEntry.BEGIN_TIME, getTimeForDB(8 + lesson, 0 + day));
-                contentValues.put(SyllabusContract.SyllabusEntry.END_TIME, getTimeForDB(8 + lesson, 10 + day));
+                contentValues.put(SyllabusContract.Syllabus.DAY, day);
+                contentValues.put(SyllabusContract.Syllabus.BEGIN_TIME, getTimeForDB(8 + lesson, 0 + day));
+                contentValues.put(SyllabusContract.Syllabus.END_TIME, getTimeForDB(8 + lesson, 10 + day));
                 SQLiteDatabase sqLiteDatabase = DBHelper.getInstance(context).getWritableDatabase();
-                sqLiteDatabase.insert(SyllabusContract.SyllabusEntry.TABLE_NAME, null, contentValues);
+                sqLiteDatabase.insert(SyllabusContract.Syllabus.TABLE_NAME, null, contentValues);
             }
         }
     }

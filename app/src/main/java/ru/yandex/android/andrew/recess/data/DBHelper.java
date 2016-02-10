@@ -5,8 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import ru.yandex.android.andrew.recess.data.SyllabusContract.EventEntry;
-import ru.yandex.android.andrew.recess.data.SyllabusContract.SyllabusEntry;
+import ru.yandex.android.andrew.recess.data.SyllabusContract.Events;
+import ru.yandex.android.andrew.recess.data.SyllabusContract.Syllabus;
 
 /**
  * Created by Andrew on 05.02.2016.
@@ -26,8 +26,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(SyllabusEntry.SQL_CREATE_SYLLABUS_TABLE);
-        sqLiteDatabase.execSQL(EventEntry.SQL_CREATE_EVENTS_TABLE);
+        sqLiteDatabase.execSQL(Syllabus.SQL_CREATE_SYLLABUS_TABLE);
+        sqLiteDatabase.execSQL(Events.SQL_CREATE_EVENTS_TABLE);
     }
 
     @Override
@@ -41,14 +41,14 @@ public class DBHelper extends SQLiteOpenHelper {
         if (syllabusCursor == null) {
             DBHelper dbHelper = DBHelper.getInstance(context);
             SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-            String[] resultColumns = {SyllabusContract.SyllabusEntry.ID, SyllabusContract.SyllabusEntry.DAY,
-                    SyllabusContract.SyllabusEntry.BEGIN_TIME, SyllabusContract.SyllabusEntry.END_TIME};
+            String[] resultColumns = {Syllabus.ID, Syllabus.DAY,
+                    Syllabus.BEGIN_TIME, Syllabus.END_TIME};
             String where = null;
             String whereArgs[] = null;
             String groupBy = null;
             String having = null;
             String order = null;
-            syllabusCursor = sqLiteDatabase.query(SyllabusContract.SyllabusEntry.TABLE_NAME,
+            syllabusCursor = sqLiteDatabase.query(Syllabus.TABLE_NAME,
                     resultColumns, where,
                     whereArgs, groupBy, having, order);
         }
