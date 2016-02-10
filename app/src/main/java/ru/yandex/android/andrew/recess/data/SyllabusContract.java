@@ -18,8 +18,8 @@ public class SyllabusContract {
         public static final String SQL_CREATE_SYLLABUS_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
                 ID + " INTEGER PRIMARY KEY," +
                 DAY + " INTEGER NOT NULL, " +
-                BEGIN_TIME + " INTEGER NOT NULL, " +
-                END_TIME + " INTEGER NOT NULL" +
+                BEGIN_TIME + " NUMERIC NOT NULL, " +
+                END_TIME + " NUMERIC NOT NULL" +
                 " );";
 
     }
@@ -32,11 +32,11 @@ public class SyllabusContract {
         public static final String ACTION = "action";
         public static final String INTENT_KEY = "intent_key";
 
-        public static final String SQL_CREATE_SYLLABUS_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
+        public static final String SQL_CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
                 ID + " INTEGER PRIMARY KEY," +
                 SYLLABUS_ENTRY_ID + " INTEGER NOT NULL, " +
                 UTC_TIME + " TEXT NOT NULL, " +
-                ACTION + " INTEGER NOT NULL" +
+                ACTION + " INTEGER NOT NULL, " +
                 INTENT_KEY + " INTEGER NOT NULL" +
                 " );";
 

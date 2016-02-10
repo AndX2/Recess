@@ -1,8 +1,15 @@
 package ru.yandex.android.andrew.recess;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import ru.yandex.android.andrew.recess.data.DBHelper;
+import ru.yandex.android.andrew.recess.data.SyllabusContract;
 import ru.yandex.android.andrew.recess.pojo.SyllabusEntry;
 
 /**
@@ -22,11 +29,11 @@ public class Utils {
         return minute * MINUTE + hour * HOUR;
     }
 
-    public static int getHourFromDBPresentation(int timeDBPresentation) {
+    public static int getHourFromDBPresentation(long timeDBPresentation) {
         return (int) (timeDBPresentation % DAY) / HOUR;
     }
 
-    public static int getMinuteFromDBPresentation(int timeDBPresentation) {
+    public static int getMinuteFromDBPresentation(long timeDBPresentation) {
         return (int) ((timeDBPresentation % DAY) % HOUR / MINUTE);
     }
 
@@ -55,5 +62,33 @@ public class Utils {
         list.add(new SyllabusEntry(Utils.getTimeForDB(8, 55), Utils.getTimeForDB(9, 40)));
         list.add(new SyllabusEntry(Utils.getTimeForDB(9, 45), Utils.getTimeForDB(10, 30)));
         return list;
+    }
+
+    public static ArrayList<SyllabusEntry> createSyllabusListEntry(Cursor cursor, int dayOfWeek) {
+        ArrayList<SyllabusEntry> list = new ArrayList<>();
+        int dayColumnIndex = cursor.getColumnIndex(SyllabusContract.SyllabusEntry.DAY);
+        int beginTimeColumnIndex = cursor.getColumnIndex(SyllabusContract.SyllabusEntry.BEGIN_TIME);
+        int endTimeColumnIndex = cursor.getColumnIndex(SyllabusContract.SyllabusEntry.END_TIME);
+        cursor.moveToFirst();
+        while (cursor.moveToNext()) {
+            if (cursor.getInt(dayColumnIndex) == dayOfWeek)
+                list.add(new SyllabusEntry(cursor.getLong(beginTimeColumnIndex),
+                        cursor.getLong(endTimeColumnIndex)));
+        }
+        return list;
+    }
+
+    //TODO delete this method
+    public static void createMockDBSyllabusData(Context context) {
+        for (int day = 1; day <= 7; day++) {
+            for (int lesson = 0; lesson < 5; lesson++) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(SyllabusContract.SyllabusEntry.DAY, day);
+                contentValues.put(SyllabusContract.SyllabusEntry.BEGIN_TIME, getTimeForDB(8 + lesson, 0 + day));
+                contentValues.put(SyllabusContract.SyllabusEntry.END_TIME, getTimeForDB(8 + lesson, 10 + day));
+                SQLiteDatabase sqLiteDatabase = DBHelper.getInstance(context).getWritableDatabase();
+                sqLiteDatabase.insert(SyllabusContract.SyllabusEntry.TABLE_NAME, null, contentValues);
+            }
+        }
     }
 }

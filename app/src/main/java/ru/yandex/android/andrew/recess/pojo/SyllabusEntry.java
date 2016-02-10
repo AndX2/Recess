@@ -4,19 +4,19 @@ package ru.yandex.android.andrew.recess.pojo;
  * Created by Andrew on 08.02.2016.
  */
 public class SyllabusEntry {
-    private int beginTime;
-    private int endTime;
+    private long beginTime;
+    private long endTime;
 
-    public SyllabusEntry(int beginTimeOfDay, int endTimeOfDay) {
+    public SyllabusEntry(long beginTimeOfDay, long endTimeOfDay) {
         this.beginTime = beginTimeOfDay;
         this.endTime = endTimeOfDay;
     }
 
-    public int getBeginTime() {
+    public long getBeginTime() {
         return beginTime;
     }
 
-    public int getEndTime() {
+    public long getEndTime() {
         return endTime;
     }
 

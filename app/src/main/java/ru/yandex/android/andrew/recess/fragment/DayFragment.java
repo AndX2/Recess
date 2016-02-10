@@ -16,6 +16,7 @@ import java.util.Calendar;
 import ru.yandex.android.andrew.recess.R;
 import ru.yandex.android.andrew.recess.Utils;
 import ru.yandex.android.andrew.recess.adapter.SyllabusRecyclerAdapter;
+import ru.yandex.android.andrew.recess.data.DBHelper;
 
 /**
  * Created by Andrew on 02.02.2016.
@@ -59,7 +60,8 @@ public class DayFragment extends Fragment {
         //recyclerView.setHasFixedSize(true);
         recyclerLayoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(recyclerLayoutManager);
-        recyclerAdapter = new SyllabusRecyclerAdapter(Utils.createMockListEntry());
+        recyclerAdapter = new SyllabusRecyclerAdapter(Utils.createSyllabusListEntry(DBHelper.getSyllabusCursor(context),
+                currentTime.get(Calendar.DAY_OF_WEEK)));
         recyclerView.setAdapter(recyclerAdapter);
 
 

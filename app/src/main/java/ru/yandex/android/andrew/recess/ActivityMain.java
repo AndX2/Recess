@@ -34,6 +34,9 @@ public class ActivityMain extends AppCompatActivity {
 
         FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
 
+        //TODO delete createSyllabusDataSet
+        Utils.createMockDBSyllabusData(this);
+
         initToolbar();
         initNavigationView();
         initTabs();
