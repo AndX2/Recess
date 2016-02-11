@@ -3,7 +3,7 @@
     xmlns:card="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_marginTop="5dp"
+    android:layout_marginTop="1dp"
     android:layout_marginBottom="5dp"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
@@ -13,14 +13,18 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/cardView"
-        card:elevation="5dp"
+        card:elevation="3dp"
         card:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="12dp"
+            android:paddingRight="0dp"
+            android:paddingLeft="0dp"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -33,7 +37,8 @@
                     android:layout_height="wrap_content"
                     android:text="stubTitle"
                     android:id="@+id/txtTitle"
-                    android:textColor="@color/colorPrimaryText" />
+                    android:textColor="@color/colorPrimaryText"
+                    android:paddingBottom="5dp" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -49,7 +54,7 @@
                         android:id="@+id/txtBeginTime"
                         android:textColor="@color/colorPrimaryText"
                         android:text="stubtext"
-                        android:textSize="30dp" />
+                        android:textSize="25dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -59,7 +64,7 @@
                         android:id="@+id/txtEndTime"
                         android:textColor="@color/colorPrimaryText"
                         android:text="stubtext"
-                        android:textSize="30dp" />
+                        android:textSize="25dp" />
 
                 </LinearLayout>
 
