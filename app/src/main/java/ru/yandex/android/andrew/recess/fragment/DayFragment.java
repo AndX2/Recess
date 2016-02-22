@@ -14,9 +14,10 @@ import android.widget.TextView;
 import java.util.Calendar;
 
 import ru.yandex.android.andrew.recess.R;
-import ru.yandex.android.andrew.recess.Utils;
+
 import ru.yandex.android.andrew.recess.adapter.SyllabusRecyclerAdapter;
 import ru.yandex.android.andrew.recess.data.DBHelper;
+import ru.yandex.android.andrew.recess.utils.Utils;
 
 /**
  * Created by Andrew on 02.02.2016.

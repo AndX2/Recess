@@ -3,6 +3,8 @@ package ru.yandex.android.andrew.recess;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import ru.yandex.android.andrew.recess.utils.Utils;
+
 import static org.junit.Assert.assertEquals;
 
 /**

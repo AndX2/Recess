@@ -1,4 +1,4 @@
-package ru.yandex.android.andrew.recess;
+package ru.yandex.android.andrew.recess.utils;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -16,6 +16,8 @@ import ru.yandex.android.andrew.recess.pojo.SyllabusEntry;
  * Created by Andrew on 02.02.2016.
  */
 public class Utils {
+    public static final String LOG_TAG = "My log tag";
+
     public static int TAB_ONE = 0;
     public static int TAB_TWO = 1;
     public static int TAB_THREE = 2;

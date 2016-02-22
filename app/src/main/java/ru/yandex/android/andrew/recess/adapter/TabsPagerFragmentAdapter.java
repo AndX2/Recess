@@ -31,24 +31,7 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        DayFragment tmpFragment;
-        switch (position) {
-            case 0:
-                return createDayFragment(context, position);
-            case 1:
-                return createDayFragment(context, position);
-            case 2:
-                return createDayFragment(context, position);
-            case 3:
-                return createDayFragment(context, position);
-            case 4:
-                return createDayFragment(context, position);
-            case 5:
-                return createDayFragment(context, position);
-            case 6:
-                return createDayFragment(context, position);
-        }
-        return null;
+        return createDayFragment(context, position);
     }
 
     @Override
